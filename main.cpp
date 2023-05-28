@@ -37,26 +37,29 @@ int main(int argc, char *argv[]){
             cout << "Could not find the file! Try again." << endl;
             return 1;
         }
-
-        int num;
+    
+        // A course object
         Course course;
-        int numOfClasses;
-
+        
+        // Reads in the first course from the input file
         inputFile >> course.getCourseName();
         inputFile >> course.getGrade();
         inputFile >> course.getCredit();
 
+        // Keeps reading in the data from the input file
         while(inputFile){
+            // Adds the course to a list of courses
+            classes.push_back(course);
+
             inputFile >> course.getCourseName();
             inputFile >> course.getGrade();
             inputFile >> course.getCredit();
             
-            classes.push_back(course);
         }
 
         // Debugging
         for(auto var : classes){
-            cout << var.getCourseName() << var.getGrade() << var.getCredit() << endl;
+            cout << var.getCourseName() << " " << var.getGrade() << " " << var.getCredit() << endl;
         }
 
     }
