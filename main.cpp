@@ -5,10 +5,15 @@
 
 #include <iostream>
 #include <fstream>
+#include <list>
+
+#include "Course.hpp"
 
 using namespace std;
 
 int main(int argc, char *argv[]){
+    list<Course> classes;
+
     cout << "Welcome to the GPA Calculator!" << endl;
     cout << "" << endl;
 
@@ -23,14 +28,36 @@ int main(int argc, char *argv[]){
         string fileName;
         cout << "Please enter the name of the file: " << endl;
         cin >> fileName;
+        cout << "" << endl;
+
+        ifstream inputFile(fileName);
 
         // If file name is not right, give error message
-        if(!fileName){
+        if(!inputFile){
             cout << "Could not find the file! Try again." << endl;
             return 1;
         }
 
+        int num;
+        Course course;
+        int numOfClasses;
 
+        inputFile >> course.getCourseName();
+        inputFile >> course.getGrade();
+        inputFile >> course.getCredit();
+
+        while(inputFile){
+            inputFile >> course.getCourseName();
+            inputFile >> course.getGrade();
+            inputFile >> course.getCredit();
+            
+            classes.push_back(course);
+        }
+
+        // Debugging
+        for(auto var : classes){
+            cout << var.getCourseName() << var.getGrade() << var.getCredit() << endl;
+        }
 
     }
 

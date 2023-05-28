@@ -1,4 +1,3 @@
-3 
 Math A 3
 English B 3
 History A 3
