@@ -1,7 +1,8 @@
 // Author: Eric Hansson
-// Date: 2023 May
+// Date: 2023 May-June
 // File: main.cpp
-// Purpose: 
+// Purpose: The purpose of this file is to execute the program to
+// calculate GPA with either a file or manually put in the classes
 
 #include <iostream>
 #include <fstream>
