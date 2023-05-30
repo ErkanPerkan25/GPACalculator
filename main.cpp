@@ -9,11 +9,42 @@
 #include <list>
 
 #include "Course.hpp"
+#include "ClassList.hpp"
 
 using namespace std;
 
+double calculateGpa(list<Course> &list){
+// Declared variable to keep track of the grade points and credits
+    int totalCredits;
+    int totalGradePoints;
+
+    for(Course &var : list){
+        // If grade is A, then that is 4
+        if(var.getGrade() == 'A'){
+            totalGradePoints += (4 * var.getCredit());
+        }
+        else if(var.getGrade() == 'B'){
+            totalGradePoints += 3 * var.getCredit();
+        }
+        else if(var.getGrade() == 'C'){
+            totalGradePoints += 2 * var.getCredit();
+        }
+        else if(var.getGrade() == 'D'){
+            totalGradePoints += 1 * var.getCredit();
+        }
+        else{
+            totalGradePoints += 0 * var.getCredit();
+        }
+
+        totalCredits += var.getCredit();
+    }
+
+    return (totalGradePoints/totalCredits);
+}
+
 int main(int argc, char *argv[]){
     list<Course> classes;
+    //ClassList classes;
 
     cout << "Welcome to the GPA Calculator!" << endl;
     cout << "" << endl;
@@ -59,9 +90,11 @@ int main(int argc, char *argv[]){
         }
 
         // Debugging
+        /*
         for(auto var : classes){
             cout << var.getCourseName() << " " << var.getGrade() << " " << var.getCredit() << endl;
         }
+        */
 
     }
 
@@ -92,10 +125,14 @@ int main(int argc, char *argv[]){
                 break;
         }
 
+        cout << "Your GPA is: " << calculateGpa(classes) << endl;
+
         //Debugging
+        /*
         for(auto var : classes){
             cout << var.getCourseName() << " " << var.getGrade() << " " << var.getCredit() << endl;
         }
+        */
     }
 
     return 0;
