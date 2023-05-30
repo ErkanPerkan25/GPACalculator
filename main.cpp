@@ -68,20 +68,28 @@ int main(int argc, char *argv[]){
     else{
         // get every credit and grade in manually
         cout << "Enter as the example: " << "Math A 3" << endl;
+        cout << "Type 'add' to add a class and 'done' when done" << endl;
         
         Course courseMan;
+        string input;
 
         // Should be able to put multiplie classes after each other 
         while(cin){
             // Prints out this every time the user will add a class
-            cout << "Insert the course: ";
-            cin >> courseMan.getCourseName();
-            cin >> courseMan.getGrade();
-            cin >> courseMan.getCredit();
+            cout << "Enter command: ";
+            cin >> input;
+            if(input == "add"){
+                cout << "Enter the course: ";
+                cin >> courseMan.getCourseName();
+                cin >> courseMan.getGrade();
+                cin >> courseMan.getCredit();
 
-            // Adds the class to the list of classes
-            classes.push_back(courseMan);
+                // Adds the class to the list of classes
+                classes.push_back(courseMan);
+            }
 
+            else if(input == "done")
+                break;
         }
 
         //Debugging
