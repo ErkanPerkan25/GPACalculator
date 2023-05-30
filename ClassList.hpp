@@ -19,5 +19,8 @@ public:
     // Function to calculate the GPA
     double calculateGpa();
 
+    // To read in the courses
+    std::istream& read(std::istream &is);
+
 };
 #endif
