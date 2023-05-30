@@ -87,7 +87,7 @@ int main(int argc, char *argv[]){
                 // Adds the class to the list of classes
                 classes.push_back(courseMan);
             }
-
+            // When done adding course, hope out of the loop
             else if(input == "done")
                 break;
         }
