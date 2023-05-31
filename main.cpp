@@ -9,7 +9,6 @@
 #include <list>
 
 #include "Course.hpp"
-#include "ClassList.hpp"
 
 using namespace std;
 
@@ -53,7 +52,6 @@ double calculateGpa(list<Course> &list){
 
 int main(int argc, char *argv[]){
     list<Course> classes;
-    //ClassList classes;
 
     cout << "Welcome to the GPA Calculator!" << endl;
     cout << "" << endl;
