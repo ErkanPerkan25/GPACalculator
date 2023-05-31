@@ -15,10 +15,12 @@ using namespace std;
 
 double calculateGpa(list<Course> &list){
 // Declared variable to keep track of the grade points and credits
-    int totalCredits;
-    int totalGradePoints;
+    double totalCredits;
+    double totalGradePoints;
+    double gpa;
 
     for(Course &var : list){
+        totalCredits += var.getCredit();
         // If grade is A, then that is 4
         if(var.getGrade() == 'A'){
             totalGradePoints += (4 * var.getCredit());
@@ -35,11 +37,11 @@ double calculateGpa(list<Course> &list){
         else{
             totalGradePoints += 0 * var.getCredit();
         }
-
-        totalCredits += var.getCredit();
     }
+    
+    gpa = totalGradePoints/totalCredits;
 
-    return (totalGradePoints/totalCredits);
+    return gpa;
 }
 
 int main(int argc, char *argv[]){
@@ -58,7 +60,7 @@ int main(int argc, char *argv[]){
         // Do calculations by a file
         // Declares the varibale for file name
         string fileName;
-        cout << "Please enter the name of the file: " << endl;
+        cout << "Please enter the name of the file: ";
         cin >> fileName;
         cout << "" << endl;
 
@@ -88,6 +90,9 @@ int main(int argc, char *argv[]){
             inputFile >> course.getCredit();
             
         }
+
+        
+        cout << "Your GPA is: " << calculateGpa(classes) << endl;
 
         // Debugging
         /*
@@ -123,6 +128,10 @@ int main(int argc, char *argv[]){
             // When done adding course, hope out of the loop
             else if(input == "done")
                 break;
+
+            else{
+                cout << "You put in a wrong command! Try again." << endl;
+            }
         }
 
         cout << "Your GPA is: " << calculateGpa(classes) << endl;
