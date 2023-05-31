@@ -14,31 +14,38 @@
 using namespace std;
 
 double calculateGpa(list<Course> &list){
-// Declared variable to keep track of the grade points and credits
-    double totalCredits;
-    double totalGradePoints;
+    // Declared variable to keep track of the grade points and credits
+    double totalCredits = 0;
+    double totalGradePoints = 0;
     double gpa;
-
+    
+    // Goes throught the list of courses
     for(Course &var : list){
         totalCredits += var.getCredit();
         // If grade is A, then that is 4
         if(var.getGrade() == 'A'){
+            // Calculates the grade point for the course
             totalGradePoints += (4 * var.getCredit());
         }
+        // If grade is B, then that is 3
         else if(var.getGrade() == 'B'){
             totalGradePoints += 3 * var.getCredit();
         }
+        // If grade is C, then that is 2
         else if(var.getGrade() == 'C'){
             totalGradePoints += 2 * var.getCredit();
         }
+        // If grade is D, then that is 1
         else if(var.getGrade() == 'D'){
             totalGradePoints += 1 * var.getCredit();
         }
+        //Otherwise got F in the course
         else{
             totalGradePoints += 0 * var.getCredit();
         }
     }
     
+    // Calculates the GPA
     gpa = totalGradePoints/totalCredits;
 
     return gpa;
